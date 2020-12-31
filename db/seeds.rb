@@ -36,13 +36,13 @@ type_perturbation_retard = Answer.create(answer_text: "Retardé", question: type
 
 # SI ANNULATION : DELAI DE PREVENANCE
 
-information_annulation = Question.create(name: "information_annulation", question_text: "Vous avez été infromé(e) de l'annulation:", survey: indemnites_vol)
+information_annulation = Question.create(name: "information_annulation", question_text: "Combien de temps avant le départ prévu avez-vous été informé(e) de l'annulation ?", survey: indemnites_vol)
 
-information_annulation_deux_semaines = Answer.create(answer_text: "Plus de 2 semaines avant l'heure de vol prévue", question: information_annulation, final_answer: true)
+information_annulation_deux_semaines = Answer.create(answer_text: "Plus de 2 semaines", question: information_annulation, final_answer: true)
 
-information_annulation_une_semaine = Answer.create(answer_text: "Entre 1 et 2 semaines avant l'heure de vol prévue", question: information_annulation, dependency: "reacheminement_propose_plus_une_semaine")
+information_annulation_une_semaine = Answer.create(answer_text: "Entre 1 et 2 semaines", question: information_annulation, dependency: "reacheminement_propose_plus_une_semaine")
 
-information_annulation_moins_une_semaine = Answer.create(answer_text: "Moins d'une semaine avant l'heure de vol prévue", question: information_annulation, dependency: "reacheminement_propose_moins_une_semaine")
+information_annulation_moins_une_semaine = Answer.create(answer_text: "Moins d'une semaine", question: information_annulation, dependency: "reacheminement_propose_moins_une_semaine")
 
 
 # SI DELAI DE PREVENANCE DE MOINS D'UNE SEMAINE

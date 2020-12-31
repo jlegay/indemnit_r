@@ -1,0 +1,34 @@
+<h1>Calculate distance between airports</h1>
+
+<form action="/indemnities_amount" method="post">
+  <div>
+    <label for="departure_airport">Aéroport de départ</label>
+    <!-- <input type="text" name="departure_airport" id="departure_airport" autocomplete="on"> -->
+    <select name="departure_airport" id="departure_airport">
+      <% @airports.each do |airport| %>
+        <option value="<%= airport %>"></option>
+      <% end %>
+    </select>
+  </div>
+  <div>
+    <label for="arrival_airport">Aéroport d'arrivée</label>
+    <select name="arrival_airport" id="arrival_airport">
+      <% @airports.each do |airport| %>
+        <option value="<%= airport %>"></option>
+      <% end %>
+    </select>
+  </div>
+  <div>
+    <input type="submit" value="Valider">
+  </div>
+</form>
+
+<%#= form_tag('/distance_c') do |f| %>
+  <%#= label_tag 'departure_airport' %>
+  <%#= text_field_tag 'departure_airport' %>
+
+  <%#= label_tag 'arrival_airport' %>
+  <%#= text_field_tag 'arrival_airport' %>
+
+  <%#= submit_tag 'Save' %>
+<%# end %>

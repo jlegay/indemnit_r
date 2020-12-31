@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="question-container center">
+    <h4 class="title-question"> <%= @question.question_text %> </h4>
+    <table class="table">
+      <tbody>
+        <tr>
+          <% @question.answers.each do |answer| %>
+            <% if answer.final_answer %>
+              <% if answer.open_to_indemnities %>
+                <td class="align-middle answer-item"><%= link_to answer.answer_text, airports_distance_path %></div>
+              <% else %>
+                <td class="align-middle answer-item"><%= link_to answer.answer_text, no_indemnities_path %></div>
+              <% end %>
+            <% else %>
+              <td class="align-middle answer-item"><%= link_to answer.answer_text, question_path(name: answer.dependency) %></div>
+            <% end %>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
