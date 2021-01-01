@@ -4,17 +4,16 @@
       <h1>Itinéraire prévu</h1>
       <form action="/indemnities_amount" method="post">
         <div>
-          <label for="departure_airport">Aéroport de départ</label>
-          <input list="airports_list" id="departure_airport" name="departure_airport">
+          <input list="airports_list" id="departure_airport" name="departure_airport" class="form-control" placeholder="Aéroport de départ">
           <datalist id="airports_list">
             <% @airports.each do |airport| %>
               <option value="<%= airport %>">
             <% end %>
           </datalist>
         </div>
+        <br>
         <div>
-          <label for="arrival_airport">Aéroport d'arrivée</label>
-          <input list="airports_list" id="arrival_airport" name="arrival_airport">
+          <input list="airports_list" id="arrival_airport" name="arrival_airport" class="form-control" placeholder="Aéroport d'arrivée">
           <datalist id="arrival_airport">
             <% @airports.each do |airport| %>
               <option value="<%= airport %>">
