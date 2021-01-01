@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_31_105606) do
+ActiveRecord::Schema.define(version: 2020_12_31_171721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2020_12_31_105606) do
     t.string "city"
     t.float "latitude"
     t.float "longitude"
-    t.boolean "european_union", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "iata_code"
+    t.boolean "european_union"
   end
 
   create_table "answers", force: :cascade do |t|

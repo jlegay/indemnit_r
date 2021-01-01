@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     departure_coordinates = [departure_a.latitude, departure_a.longitude]
     arrival_coordinates = [arrival_a.latitude, arrival_a.longitude]
     @distance = distance(departure_coordinates, arrival_coordinates)
+    @eu_flight = departure_a.european_union && arrival_a.european_union
   end
 
   def distance(loc1, loc2)
