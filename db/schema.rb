@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_31_171721) do
+ActiveRecord::Schema.define(version: 2021_01_01_101354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_171721) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "final_answer", default: false
     t.boolean "open_to_indemnities", default: false
+    t.string "indemnity_reason"
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 

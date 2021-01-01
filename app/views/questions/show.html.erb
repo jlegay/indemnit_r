@@ -6,8 +6,10 @@
         <tr>
           <% @question.answers.each do |answer| %>
             <% if answer.final_answer %>
-              <% if answer.open_to_indemnities %>
+              <% if answer.open_to_indemnities && (answer.indemnity_reason == 'cancel' || answer.indemnity_reason == 'no_boarding')  %>
                 <td class="align-middle answer-item"><%= link_to answer.answer_text, airports_distance_path %></div>
+              <% elsif answer.open_to_indemnities && answer.indemnity_reason == 'delay' %>
+                <td class="align-middle answer-item"><%= link_to answer.answer_text, airports_distance_delay_path %></div>
               <% else %>
                 <td class="align-middle answer-item"><%= link_to answer.answer_text, no_indemnities_path %></div>
               <% end %>

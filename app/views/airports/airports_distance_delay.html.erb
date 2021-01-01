@@ -1,0 +1,35 @@
+<h1>Calculate distance between airports</h1>
+
+<form action="/indemnities_amount" method="post">
+  <div>
+    <label for="departure_airport">Aéroport de départ</label>
+    <input list="airports_list" id="departure_airport" name="departure_airport">
+    <datalist id="airports_list">
+      <% @airports.each do |airport| %>
+        <option value="<%= airport %>">
+      <% end %>
+    </datalist>
+  </div>
+  <div>
+    <label for="arrival_airport">Aéroport d'arrivée</label>
+    <input list="airports_list" id="arrival_airport" name="arrival_airport">
+    <datalist id="arrival_airport">
+      <% @airports.each do |airport| %>
+        <option value="<%= airport %>">
+      <% end %>
+    </datalist>
+  </div>
+  <div>
+    <label for="delay">Durée du retard</label>
+    <select name="delay" id="delay">
+      <option value="moins_de_deux_heures">Moins de 2 heures</option>
+      <option value="moins_de_deux_heures">Entre 2 et 3 heures</option>
+      <option value="moins_de_deux_heures">Entre 3 et 4 heures</option>
+      <option value="moins_de_deux_heures">Plus de 4 heures</option>
+    </select>
+  </div>
+  <div>
+    <input type="submit" value="Valider">
+  </div>
+</form>
+

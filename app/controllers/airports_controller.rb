@@ -8,4 +8,11 @@ class AirportsController < ApplicationController
     arrival_airport = params[:arrival_airport]
   end
 
+  def airports_distance_delay
+    @airports = Airport.all.pluck(:name)
+    departure_airport = params[:departure_airport]
+    arrival_airport = params[:arrival_airport]
+    delay = params[:delay]
+  end
+
 end

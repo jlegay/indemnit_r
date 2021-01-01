@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :results, only: [:show]
 
   get 'airports_distance', to: 'airports#airports_distance'
+  get 'airports_distance_delay', to: 'airports#airports_distance_delay'
   get 'no_indemnities', to: 'pages#no_indemnities'
   post 'indemnities_amount', to: 'pages#indemnities_amount'
 end
