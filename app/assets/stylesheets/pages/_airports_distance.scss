@@ -1,3 +1,41 @@
 // #input_form {
 //   margin-top: 2rem;
 // }
+
+.airports-form {
+  padding: 50px;
+}
+
+.airport-form-input {
+  border: 1px solid rgb(236, 151, 31);
+  font-size: 10px;
+  padding: 1rem 1.5rem;
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .airport-form-input {
+    font-size: 12px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .airport-form-input {
+    font-size: 20px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px){
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

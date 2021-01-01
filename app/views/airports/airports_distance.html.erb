@@ -1,10 +1,10 @@
-<div class="container">
-  <div class="content-container center">
-    <div class="content">
+<div class="full-container">
+  <div class="content-container">
+    <div class="content airports-form">
       <h1>Itinéraire prévu</h1>
       <form action="/indemnities_amount" method="post">
         <div>
-          <input list="airports_list" id="departure_airport" name="departure_airport" class="form-control" placeholder="Aéroport de départ">
+          <input list="airports_list" id="departure_airport" name="departure_airport" class= "airport-form-input" placeholder="Départ (aéroport)">
           <datalist id="airports_list">
             <% @airports.each do |airport| %>
               <option value="<%= airport %>">
@@ -13,7 +13,7 @@
         </div>
         <br>
         <div>
-          <input list="airports_list" id="arrival_airport" name="arrival_airport" class="form-control" placeholder="Aéroport d'arrivée">
+          <input list="airports_list" id="arrival_airport" name="arrival_airport" class= "airport-form-input" placeholder="Arrivée (aéroport)">
           <datalist id="arrival_airport">
             <% @airports.each do |airport| %>
               <option value="<%= airport %>">
@@ -27,4 +27,6 @@
     </div>
   </div>
 </div>
+
+
 

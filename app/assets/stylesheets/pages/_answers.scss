@@ -1,26 +1,3 @@
-// .center {
-//   margin: 0;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   -ms-transform: translate(-50%, -50%);
-//   transform: translate(-50%, -50%);
-// }
-
-
-// .title-question {
-//   text-align: center;
-// }
-
-// .answers-list {
-//   list-style: none;
-// }
-
-// .table {
-//   border-collapse: separate;
-//   border-spacing: 2rem;
-// }
-
 .answers-box {
   display: flex;
   justify-content: space-around;
@@ -29,7 +6,7 @@
 .answer-item {
   height: 40px;
   width: 190px;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 40px;
   background-color: rgb(236, 151, 31);
   text-align: center;
@@ -57,6 +34,9 @@
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+  .answer-item {
+    font-size: 12px;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -64,7 +44,7 @@
   .answer-item {
     height: 80px;
     width: 320px;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 80px;
   }
 }
