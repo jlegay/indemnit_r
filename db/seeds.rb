@@ -31,7 +31,7 @@ type_perturbation = Question.create(name: "type_perturbation", question_text: "Q
 
 type_perturbation_annulation = Answer.create(answer_text: "Annulé", question: type_perturbation, dependency: "information_annulation")
 
-type_perturbation_retard = Answer.create(answer_text: "Retardé", question: type_perturbation, final_answer: true, open_to_indemnities: true, indemnity_reason: 'delay')
+type_perturbation_retard = Answer.create(answer_text: "Retardé", question: type_perturbation, dependency: 'duree_retard')
 
 type_perturbation_refus_embarquement = Answer.create(answer_text: "Refus d'embarquement", question: type_perturbation)
 
@@ -86,6 +86,11 @@ Answer.create(answer_text: "Non", question: conditions_reacheminement_plus_une_s
 
 # FIN QUESTIONNAIRE ANNULATION
 
+# QUESTIONNAIRE RETARD
+
+duree_retard = Question.create(name: 'duree_retard', question_text: "Quelle était la durée du retard ?", survey: indemnites_vol)
+Answer.create(answer_text: 'Moins de 3 heures', question: duree_retard, final_answer: true, open_to_indemnities: false)
+Answer.create(answer_text: 'Plus de 3 heures', question: duree_retard, final_answer: true, open_to_indemnities: true)
 
 # QUESTIONNAIRE REFUS D'EMBARQUEMENT
 

@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def home
+    survey = Survey.first
+    @first_question = survey.questions.first
   end
 
   def indemnities_amount
@@ -15,7 +17,7 @@ class PagesController < ApplicationController
     distance = distance(departure_coordinates, arrival_coordinates)
     eu_flight = departure_a.european_union && arrival_a.european_union
 
-    @indemnities = indemnities(@distance, @eu_flight)
+    @indemnities = indemnities(distance, eu_flight)
   end
 
   private

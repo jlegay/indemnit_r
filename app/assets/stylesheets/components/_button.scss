@@ -1,0 +1,19 @@
+.button {
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.full-button {
+  color: white;
+  background-color: rgb(236, 151, 31);
+  border: 0.5px solid rgb(236, 151, 31);
+
+  &:hover {
+    transition-duration: 0.8s;
+    background-color: white;
+    color: rgb(236, 151, 31);
+    border: 0.5px solid rgb(236, 151, 31);
+    text-decoration: none;
+  }
+}
