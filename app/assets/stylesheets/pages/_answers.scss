@@ -1,0 +1,87 @@
+// .center {
+//   margin: 0;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -ms-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
+// }
+
+
+// .title-question {
+//   text-align: center;
+// }
+
+// .answers-list {
+//   list-style: none;
+// }
+
+// .table {
+//   border-collapse: separate;
+//   border-spacing: 2rem;
+// }
+
+.answers-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.answer-item {
+  height: 40px;
+  width: 190px;
+  font-size: 14px;
+  line-height: 40px;
+  background-color: rgb(236, 151, 31);
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid rgb(236, 151, 31);
+  margin: 1rem;
+
+  &:hover {
+    opacity: 0.7;
+    transition-duration: 0,7s;
+  }
+ }
+
+.answer-item > a {
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .answer-item {
+    height: 80px;
+    width: 320px;
+    font-size: 25px;
+    line-height: 80px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px){
+  .answer-item {
+    height: 70px;
+    line-height: 70px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
+
+
+
+

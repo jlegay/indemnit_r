@@ -33,7 +33,7 @@ type_perturbation_annulation = Answer.create(answer_text: "Annulé", question: t
 
 type_perturbation_retard = Answer.create(answer_text: "Retardé", question: type_perturbation, dependency: 'duree_retard')
 
-type_perturbation_refus_embarquement = Answer.create(answer_text: "Refus d'embarquement", question: type_perturbation)
+type_perturbation_refus_embarquement = Answer.create(answer_text: "Refus d'embarquement", question: type_perturbation, dependency: "volontaire_refus_embarquement")
 
 
 # QUESTIONNAIRE ANNULATION
@@ -94,7 +94,7 @@ Answer.create(answer_text: 'Plus de 3 heures', question: duree_retard, final_ans
 
 # QUESTIONNAIRE REFUS D'EMBARQUEMENT
 
-volontaire_refus_embarquement = Question.create(name: "volontaire_refus_embarquement", question_text: 'Vous êts -vous porté(e) volontaire pour ne pas embarquer ?', survey: indemnites_vol)
+volontaire_refus_embarquement = Question.create(name: "volontaire_refus_embarquement", question_text: 'Vous êtes-vous porté(e) volontaire pour ne pas embarquer ?', survey: indemnites_vol)
 Answer.create(answer_text: 'Oui', question: volontaire_refus_embarquement, final_answer: true, open_to_indemnities: false)
 Answer.create(answer_text: 'Non', question: volontaire_refus_embarquement, final_answer: true, open_to_indemnities: true, indemnity_reason: 'no_boarding')
 

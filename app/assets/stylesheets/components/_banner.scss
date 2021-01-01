@@ -1,30 +1,51 @@
-// .banner {
-//   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(travel.jpg);
-//   background-size: cover;
-//   height: 100%;
-//   background-position: center;
-//   padding: 270px 0;
+
+
+// .banner h1 {
+//   margin: 0;
+//   font-size: 32px;
+//   font-weight: bold;
 // }
 
-.banner h1 {
-  margin: 0;
-  // color: white;
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
+// .banner p {
+//   font-size: 20px;
+//   // color: white;
+//   opacity: .7;
+//   // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
 
-.banner p {
-  font-size: 20px;
-  // color: white;
-  opacity: .7;
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
 
-html {
-  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(travel.jpg);
-}
+// // .full-page {
+// //   position: relative;
+// // }
 
-.full-page {
-  position: relative;
-}
+// // Smallest device
+// @media (min-width: 100px) and (max-width: 575px) {
+//   h1 {
+//     font-size: 20px;
+//   }
+//   .center {
+//     padding: 10px;
+//   }
+// }
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+// }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+
+// }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   html {
+//     background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(travel.jpg);
+//   }
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .cards-index {
+//     grid-template-columns: 1fr 1fr 1fr;
+//   }
+// }
