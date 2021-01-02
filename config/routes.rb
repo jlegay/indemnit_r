@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   get 'airports_distance', to: 'airports#airports_distance'
   get 'no_indemnities', to: 'pages#no_indemnities'
+  get 'display_indemnities', to: 'pages#display_indemnities'
   post 'indemnities_amount', to: 'pages#indemnities_amount'
 end

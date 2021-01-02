@@ -18,7 +18,13 @@ class PagesController < ApplicationController
     eu_flight = departure_a.european_union && arrival_a.european_union
 
     @indemnities = indemnities(distance, eu_flight)
+    redirect_to display_indemnities_path(indemnities: @indemnities)
   end
+
+  def display_indemnities
+    @indemnities = params[:indemnities]
+  end
+
 
   private
 
