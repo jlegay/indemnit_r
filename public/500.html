@@ -3,6 +3,7 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
   <style>
   .rails-default-error-page {
     background-color: #EFEFEF;
@@ -31,12 +32,6 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
   .rails-default-error-page div.dialog > p {
     margin: 0 0 1em;
     padding: 1em;
@@ -51,16 +46,62 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+    body {
+    background-image: url('https://images.unsplash.com/photo-1503365113766-4a362681eac5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YWlycG9ydCUyMGJvYXJkfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+
+  #full-container-error-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(travel.jpg);
+  }
+  .content-container-error-page {
+    padding: 30px;
+    margin: 0 30px;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+  }
+
+  .content-error-page {
+    text-align: center;
+  }
+
+  .error-title {
+    color: rgb(236, 151, 31);
+  }
+
+  h1 {
+    font-size: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 2rem;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+    <div id="full-container-error-page">
+      <div class="content-container-error-page">
+        <div class="content-error-page">
+        <h1 class="error-title">500</h1>
+        <br>
+        </div>
+        <p>Cette page n'existe pas ou n'existe plus.</p>
+        <br>
+        <p>Nous vous invitons à retourner à la <span><a href="pages#home">page d'accueil</a>.</span></p>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>

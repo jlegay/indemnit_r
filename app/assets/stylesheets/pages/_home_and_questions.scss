@@ -35,6 +35,19 @@ p {
   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(travel.jpg);
 }
 
+.content-container {
+  padding: 30px;
+  margin: 0 30px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
 }

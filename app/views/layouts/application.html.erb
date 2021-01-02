@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IndemnitR</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,6 +8,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+    <%= favicon_link_tag 'favicon.png'%>
   </head>
 
   <body>
