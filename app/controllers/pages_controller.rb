@@ -17,7 +17,21 @@ class PagesController < ApplicationController
     distance = distance(departure_coordinates, arrival_coordinates)
     eu_flight = departure_a.european_union && arrival_a.european_union
 
-    @indemnities = indemnities(distance, eu_flight)
+    if params[:delay] != nil
+      if params[:delay] == "Moins de 2 heures"
+        delay = 1
+      elsif params[:delay] == "2 à 3 heures"
+        delay = 2
+      elsif params[:delay] == "3 à 4 heures"
+        delay = 3
+      else
+        delay = 4
+      end
+    else
+      delay = 0
+    end
+
+    @indemnities = indemnities(distance, eu_flight, delay)
     redirect_to display_indemnities_path(indemnities: @indemnities)
   end
 
@@ -28,14 +42,22 @@ class PagesController < ApplicationController
 
   private
 
-  def indemnities(distance, eu_flight)
+  def indemnities(distance, eu_flight, delay)
     if distance < 1500
-      amount = 250
+      amount = delay == 1? 125 : 250
     else
       if eu_flight || distance < 3500
-        amount = 400
+        if delay == 1 || delay == 2
+          amount = 200
+        else
+          amount = 400
+        end
       else
-        amount = 600
+        if delay == 1 || delay == 2 || delay == 3
+          amount = 300
+        else
+          amount = 600
+        end
       end
     end
     amount

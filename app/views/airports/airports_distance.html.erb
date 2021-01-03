@@ -20,6 +20,18 @@
             <% end %>
           </datalist>
         </div>
+        <% if @indemnity_reason == 'cancel one week' %>
+          <div>
+            <label for="delay">Quelle était la durée du retard à l'arrivée sur le nouveau vol ?</label>
+            <input list="delay_answers" id="delay" name="delay" class= "airport-form-input">
+            <datalist id="delay_answers">
+              <option value="Moins de 2 heures">
+              <option value="2 à 3 heures">
+              <option value="3 à 4 heures<">
+              <option value="Plus de 4 heures">
+            </datalist>
+          </div>
+        <% end %>
         <div id="input_form">
           <input type="submit" value="Valider" class="button full-button">
         </div>

@@ -39,34 +39,33 @@ def create_disturbed_flight_survey
 
   reacheminement_propose_moins_une_semaine = Question.create(name: "reacheminement_propose_moins_une_semaine", question_text: "Un réacheminement vous a-t-il été proposé?", survey: indemnites_vol)
   Answer.create(answer_text: "Oui", question: reacheminement_propose_moins_une_semaine, dependency: "conditions_reacheminement_moins_une_semaine_depart")
-  Answer.create(answer_text: "Non", question: reacheminement_propose_moins_une_semaine, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel')
+  Answer.create(answer_text: "Non", question: reacheminement_propose_moins_une_semaine, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel one week no replacement')
 
   # SI DELAI DE PREVENANCE MOINS D'UNE SEMAINE ET REACHEMINEMENT PROPOSE : CONDITIONS REACHEMINEMENT ?
 
-  conditions_reacheminement_moins_une_semaine_depart = Question.create(name: "conditions_reacheminement_moins_une_semaine_depart", question_text: "Le réacheminement proposé vous permettait-il de partir moins de 2 heures avant l'heure de départ initialement prévue ?", survey: indemnites_vol)
+  conditions_reacheminement_moins_une_semaine_depart = Question.create(name: "conditions_reacheminement_moins_une_semaine_depart", question_text: "Le réacheminement proposé vous permettait-il de partir moins de 1 heure avant l'heure de départ initialement prévue ?", survey: indemnites_vol)
   Answer.create(answer_text: "Oui", question: conditions_reacheminement_moins_une_semaine_depart, dependency: "conditions_reacheminement_moins_une_semaine_arrivee")
-  Answer.create(answer_text: "Non", question: conditions_reacheminement_moins_une_semaine_depart, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel')
+  Answer.create(answer_text: "Non", question: conditions_reacheminement_moins_une_semaine_depart, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel one week')
 
-  conditions_reacheminement_moins_une_semaine_arrivee = Question.create(name: "conditions_reacheminement_moins_une_semaine_arrivee", question_text: "Le réacheminement proposé vous permettait-il d'arriver moins de 4 heures après l'heure d'arrivée initialement prévue ?", survey: indemnites_vol)
-  Answer.create(answer_text: "Oui", question: conditions_reacheminement_moins_une_semaine_arrivee, dependency: "Aucune indemnité ne vous est dûe par la compagnie pour ce vol")
-  Answer.create(answer_text: "Non", question: conditions_reacheminement_moins_une_semaine_arrivee, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel')
-
+  conditions_reacheminement_moins_une_semaine_arrivee = Question.create(name: "conditions_reacheminement_moins_une_semaine_arrivee", question_text: "Le réacheminement proposé vous permettait-il d'arriver moins de 2 heures après l'heure d'arrivée initialement prévue ?", survey: indemnites_vol)
+  Answer.create(answer_text: "Oui", question: conditions_reacheminement_moins_une_semaine_arrivee, final_answer: true, open_to_indemnities: false)
+  Answer.create(answer_text: "Non", question: conditions_reacheminement_moins_une_semaine_arrivee, final_answer: :true, open_to_indemnities: true, indemnity_reason: 'cancel one week')
 
   # SI DELAI DE PREVENANCE ENTRE 1 ET 2 SEMAINES : REACHEMINEMENT PROPOSE ?
 
   reacheminement_propose_plus_une_semaine = Question.create(name: "reacheminement_propose_plus_une_semaine", question_text: "Un réacheminement vous a-t-il été proposé?", survey: indemnites_vol)
   Answer.create(answer_text: "Oui", question: reacheminement_propose_plus_une_semaine, dependency: "conditions_reacheminement_plus_une_semaine_depart")
-  Answer.create(answer_text: "Non", question: reacheminement_propose_plus_une_semaine, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel')
+  Answer.create(answer_text: "Non", question: reacheminement_propose_plus_une_semaine, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel two weeks no replacement')
 
   # SI DELAI DE PREVENANCE ENTRE 1 ET 2 SEMAINES ET REACHEMINEMENT PROPOSE : CONDITIONS REACHEMINEMENT ?
 
-  conditions_reacheminement_plus_une_semaine_depart = Question.create(name: "conditions_reacheminement_plus_une_semaine_depart", question_text: "Le réacheminement proposé vous permettait-il de partir moins de 1 heure avant l'heure de départ initialement prévue ?", survey: indemnites_vol)
+  conditions_reacheminement_plus_une_semaine_depart = Question.create(name: "conditions_reacheminement_plus_une_semaine_depart", question_text: "Le réacheminement proposé vous permettait-il de partir moins de 2 heure avant l'heure de départ initialement prévue ?", survey: indemnites_vol)
   Answer.create(answer_text: "Oui", question: conditions_reacheminement_plus_une_semaine_depart, dependency: "conditions_reacheminement_plus_une_semaine_arrivee")
-  Answer.create(answer_text: "Non", question: conditions_reacheminement_plus_une_semaine_depart, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel')
+  Answer.create(answer_text: "Non", question: conditions_reacheminement_plus_une_semaine_depart, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel two weeks')
 
-  conditions_reacheminement_plus_une_semaine_arrivee = Question.create(name: "conditions_reacheminement_plus_une_semaine_arrivee", question_text: "Le réacheminement proposé vous permettait-il d'arriver moins de 2 heures après l'heure d'arrivée initialement prévue ?", survey: indemnites_vol)
-  Answer.create(answer_text: "Oui", question: conditions_reacheminement_plus_une_semaine_arrivee, dependency: "Aucune indemnité ne vous est dûe par la compagnie pour ce vol")
-  Answer.create(answer_text: "Non", question: conditions_reacheminement_plus_une_semaine_arrivee, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel')
+  conditions_reacheminement_plus_une_semaine_arrivee = Question.create(name: "conditions_reacheminement_plus_une_semaine_arrivee", question_text: "Le réacheminement proposé vous permettait-il d'arriver moins de 4 heures après l'heure d'arrivée initialement prévue ?", survey: indemnites_vol)
+  Answer.create(answer_text: "Oui", question: conditions_reacheminement_plus_une_semaine_arrivee, final_answer: true, open_to_indemnities: false)
+  Answer.create(answer_text: "Non", question: conditions_reacheminement_plus_une_semaine_arrivee, final_answer: true, open_to_indemnities: true,  indemnity_reason: 'cancel two weeks')
 
   # FIN QUESTIONNAIRE ANNULATION
 
@@ -74,13 +73,13 @@ def create_disturbed_flight_survey
 
   duree_retard = Question.create(name: 'duree_retard', question_text: "Quelle était la durée du retard ?", survey: indemnites_vol)
   Answer.create(answer_text: 'Moins de 3 heures', question: duree_retard, final_answer: true, open_to_indemnities: false)
-  Answer.create(answer_text: 'Plus de 3 heures', question: duree_retard, final_answer: true, open_to_indemnities: true)
+  Answer.create(answer_text: 'Plus de 3 heures', question: duree_retard, final_answer: true, open_to_indemnities: true, indemnity_reason: 'delay')
 
   # QUESTIONNAIRE REFUS D'EMBARQUEMENT
 
   volontaire_refus_embarquement = Question.create(name: "volontaire_refus_embarquement", question_text: 'Vous êtes-vous porté(e) volontaire pour ne pas embarquer ?', survey: indemnites_vol)
   Answer.create(answer_text: 'Oui', question: volontaire_refus_embarquement, final_answer: true, open_to_indemnities: false)
-  Answer.create(answer_text: 'Non', question: volontaire_refus_embarquement, final_answer: true, open_to_indemnities: true, indemnity_reason: 'no_boarding')
+  Answer.create(answer_text: 'Non', question: volontaire_refus_embarquement, final_answer: true, open_to_indemnities: true, indemnity_reason: 'no boarding')
 
   # FIN DU QUESTIONNAIRE REFUS D'EMBARQUEMENT
 

@@ -6,8 +6,8 @@
         <div class="answers-container">
           <% @question.answers.each do |answer| %>
             <% if answer.final_answer %>
-              <% if answer.open_to_indemnities %>
-                <div class="answer-item"><%= link_to answer.answer_text, airports_distance_path %></div>
+              <% if answer.open_to_indemnities%>
+                <div class="answer-item"><%= link_to answer.answer_text, airports_distance_path(params: {indemnity_reason: answer.indemnity_reason}) %></div>
               <% else %>
                 <div class="answer-item"><%= link_to answer.answer_text, no_indemnities_path %></div>
               <%end %>
