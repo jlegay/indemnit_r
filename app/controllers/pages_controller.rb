@@ -7,43 +7,32 @@ class PagesController < ApplicationController
     @first_question = survey.questions.first
   end
 
+
   def indemnities_amount
-    departure_a = Airport.where("airports.name LIKE ?", "%#{params[:departure_airport]}%").first
-    arrival_a = Airport.where("airports.name LIKE ?", "%#{params[:arrival_airport]}%").first
+    departure_airport = find_airport(params[:departure_airport])
+    arrival_airport = find_airport(params[:arrival_airport])
 
-    departure_coordinates = [departure_a.latitude, departure_a.longitude]
-    arrival_coordinates = [arrival_a.latitude, arrival_a.longitude]
+    departure_airport_coordinates = [departure_airport.latitude, departure_airport.longitude]
+    arrival_airport_coordinates = [arrival_airport.latitude, arrival_airport.longitude]
 
-    distance = distance(departure_coordinates, arrival_coordinates)
+    distance = distance(departure_airport_coordinates, arrival_airport_coordinates)
 
-    airline = Airline.where("airlines.name LIKE ?", "%#{params[:airline]}%").first
-    eu_flight = departure_a.european_union && arrival_a.european_union
+    delay_at_arrival = params[:delay] != nil ? transform_delay(params[:delay]) : 0
 
-    if params[:delay] != nil
-      if params[:delay] == "Moins de 2 heures"
-        delay = 1
-      elsif params[:delay] == "2 à 3 heures"
-        delay = 2
-      elsif params[:delay] == "3 à 4 heures"
-        delay = 3
-      else
-        delay = 4
-      end
-    else
-      delay = 0
+    eu_flight = departure_airport.european_union && arrival_airport.european_union
+
+    if !eu_flight
+      airline = Airline.where("airlines.name LIKE ?", "%#{params[:airline]}%").first
     end
 
-    if departure_a.european_union || (airline.belongs_to_eu && arrival_a.european_union)
-      @indemnities = indemnities(distance, eu_flight, delay)
+    if departure_airport.european_union || (airline.belongs_to_eu && arrival_airport.european_union)
+      @indemnities = indemnities(distance, eu_flight, delay_at_arrival)
       redirect_to display_indemnities_path(indemnities: @indemnities)
     else
       redirect_to no_indemnities_path
     end
-
-
-
-
   end
+
 
   def display_indemnities
     @indemnities = params[:indemnities]
@@ -51,6 +40,22 @@ class PagesController < ApplicationController
 
 
   private
+
+  def find_airport(airport_name)
+    airport = Airport.where("airports.name LIKE ?", "%#{airport_name}%").first
+  end
+
+  def transform_delay(delay)
+    if params[:delay] == "Moins de 2 heures"
+      delay = 1
+    elsif params[:delay] == "2 à 3 heures"
+      delay = 2
+    elsif params[:delay] == "3 à 4 heures"
+      delay = 3
+    else
+      delay = 4
+    end
+  end
 
   def indemnities(distance, eu_flight, delay)
     if distance < 1500
