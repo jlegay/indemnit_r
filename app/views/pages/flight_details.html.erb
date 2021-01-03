@@ -4,7 +4,7 @@
       <h1>Détails du voyage</h1>
       <form action="/indemnities_amount" method="post">
         <div>
-          <input list="airports_list" id="departure_airport" name="departure_airport" class= "airport-form-input" placeholder="Départ (aéroport)">
+          <input list="airports_list" id="departure_airport" name="departure_airport" class= "airport-form-input" placeholder="Départ (aéroport)" required>
           <datalist id="airports_list">
             <% @airports.each do |airport| %>
               <option value="<%= airport %>">
@@ -13,7 +13,7 @@
         </div>
         <br>
         <div>
-          <input list="airports_list" id="arrival_airport" name="arrival_airport" class= "airport-form-input" placeholder="Arrivée (aéroport)">
+          <input list="airports_list" id="arrival_airport" name="arrival_airport" class= "airport-form-input" placeholder="Arrivée (aéroport)" required>
           <datalist id="arrival_airport">
             <% @airports.each do |airport| %>
               <option value="<%= airport %>">
@@ -22,7 +22,7 @@
         </div>
         <br>
         <div>
-          <input list="airlines_list" id="airline" name="airline" class= "airport-form-input" placeholder="Compagnie aérienne">
+          <input list="airlines_list" id="airline" name="airline" class= "airport-form-input" placeholder="Compagnie aérienne" required>
           <datalist id="airlines_list">
             <% @airlines.each do |airline| %>
               <option value="<%= airline %>">
@@ -34,7 +34,7 @@
           <br>
           <div class="delay_form">
             <label for="delay">Quelle était la durée du retard à l'arrivée sur le nouveau vol ?</label>
-            <input list="delay_answers" id="delay" name="delay" class= "airport-form-input">
+            <input list="delay_answers" id="delay" name="delay" class= "airport-form-input" required>
             <datalist id="delay_answers">
               <option value="Moins de 2 heures">
               <option value="2 à 3 heures">

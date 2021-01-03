@@ -11,7 +11,7 @@ def create_disturbed_flight_survey
 
   # TYPE DE PERTURBATION
 
-  type_perturbation = Question.create(name: "type_perturbation", question_text: "Quel a été votre problème sur ce vol ?", survey: indemnites_vol)
+  type_perturbation = Question.create(name: "type_perturbation", question_text: "Quel a été votre problème sur le vol ?", survey: indemnites_vol)
 
   type_perturbation_annulation = Answer.create(answer_text: "Annulé", question: type_perturbation, dependency: "information_annulation")
 
@@ -24,7 +24,7 @@ def create_disturbed_flight_survey
 
   # DELAI DE PREVENANCE
 
-  information_annulation = Question.create(name: "information_annulation", question_text: "Combien de temps avant le départ prévu avez-vous été informé(e) de l'annulation ?", survey: indemnites_vol)
+  information_annulation = Question.create(name: "information_annulation", question_text: "Combien de temps avant le départ avez-vous été informé(e) de l'annulation ?", survey: indemnites_vol)
 
   information_annulation_deux_semaines = Answer.create(answer_text: "Plus de 2 semaines", question: information_annulation, final_answer: true)
 
@@ -59,7 +59,7 @@ def create_disturbed_flight_survey
 
   # SI DELAI DE PREVENANCE ENTRE 1 ET 2 SEMAINES ET REACHEMINEMENT PROPOSE : CONDITIONS REACHEMINEMENT ?
 
-  conditions_reacheminement_plus_une_semaine_depart = Question.create(name: "conditions_reacheminement_plus_une_semaine_depart", question_text: "Le réacheminement proposé vous permettait-il de partir moins de 2 heure avant l'heure de départ initialement prévue ?", survey: indemnites_vol)
+  conditions_reacheminement_plus_une_semaine_depart = Question.create(name: "conditions_reacheminement_plus_une_semaine_depart", question_text: "Le réacheminement proposé vous permettait-il de partir moins de 2 heures avant l'heure de départ initialement prévue ?", survey: indemnites_vol)
   Answer.create(answer_text: "Oui", question: conditions_reacheminement_plus_une_semaine_depart, dependency: "conditions_reacheminement_plus_une_semaine_arrivee")
   Answer.create(answer_text: "Non", question: conditions_reacheminement_plus_une_semaine_depart, final_answer: true, open_to_indemnities: true, indemnity_reason: 'cancel two weeks')
 

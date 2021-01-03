@@ -8,10 +8,10 @@ Le questionnaire est construit en arborescence : la réponse à la qestion préc
 définit la question affichée ensuite.
 
 
-BASE DE DONNEES
+#BASE DE DONNEES
 
 
- 1/ Surveys
+ ##1/ Surveys
 
  Attributs : :id, :name
  Has_many :questions
@@ -20,7 +20,7 @@ BASE DE DONNEES
  et plusieurs questions lui sont rattachées.
 
 
- 2/ Questions
+ ##2/ Questions
 
  Attributs: :id, :name, :question_text, survey_id
  Belongs_to :survey
@@ -30,7 +30,7 @@ BASE DE DONNEES
  plusieurs réponses lui sont rattachées.
 
 
- 3/Answers
+ ##3/Answers
 
  Attributs: :id, :answer_text, :question_id, :dependency, :final_answer, :open_to_indemnities, :indemnity_reason
  Belongs_to :question
@@ -38,7 +38,7 @@ BASE DE DONNEES
  Chaque réponse est rattachée à une question. Pour prévoir que le choix de cette réponse
  envoie vers telle question, indiquer le nom de la question dans :dependency.
 
- :final_answer est true s'il n'y a plus de quesitons ensuite
+ :final_answer est true s'il n'y a plus de questions ensuite
  :open_to_indemnities est true si l'ensemble de réponses données (i.e. la branche suivie)
  ouvre potentiellement droit à indemnités (à affiner ensuite selon notamment
  le caractère intra ou extra communautaire du vol)
@@ -48,7 +48,7 @@ BASE DE DONNEES
  lancé via db:seed.
 
 
- 4/Airports
+ ##4/Airports
 
  Attributs: :name, :city, :latitude, :longitude, :iata_code, :european_union
 
@@ -61,7 +61,7 @@ BASE DE DONNEES
  concernés par le Réglement Européens (Norvège, Islande, Suisse).
 
 
- 5/Airlines
+ ##5/Airlines
 
  Attributs: :name, :belongs_to_eu
 
@@ -70,19 +70,19 @@ BASE DE DONNEES
 
  Elle est alimentée par un fichier (public/airlines.csv) parsé par la méthode create_from_collection.
 
- :belongs_to_eu est true si c'ets une compagnie intra-communautaire.
+ :belongs_to_eu est true si c'est une compagnie intra-communautaire.
 
 
-PARCOURS
+#PARCOURS
 
-  Le questionnaire débute sur la home. Les questions se suivent en fonciton
+  Le questionnaire débute sur la home. Les questions se suivent en fonction
   des réponses choisies par l'utilisateur.
   Une fois que l'utilisateur clique sur une final_answer (liens définis dans views/questions/show/html.erb) :
     - si open_to_indemnities est true, envoyé vers flight_details pour demander les détails
     du vol
     - si open_to_indemnities est false, envoyé vers no_indemnities
 
-  flight_details : formulaire récupérant les informations sur le vol nécessaire pour définir:
+  flight_details : formulaire récupérant les informations sur le vol nécessaires pour définir:
     - l'éligibilité finale aux indemnités
     - le montant des indemnités
 
