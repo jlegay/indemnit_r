@@ -15,6 +15,8 @@ class PagesController < ApplicationController
     arrival_coordinates = [arrival_a.latitude, arrival_a.longitude]
 
     distance = distance(departure_coordinates, arrival_coordinates)
+
+    airline = Airline.where("airlines.name LIKE ?", "%#{params[:airline]}%").first
     eu_flight = departure_a.european_union && arrival_a.european_union
 
     if params[:delay] != nil
@@ -31,8 +33,16 @@ class PagesController < ApplicationController
       delay = 0
     end
 
-    @indemnities = indemnities(distance, eu_flight, delay)
-    redirect_to display_indemnities_path(indemnities: @indemnities)
+    if departure_a.european_union || (airline.belongs_to_eu && arrival_a.european_union)
+      @indemnities = indemnities(distance, eu_flight, delay)
+      redirect_to display_indemnities_path(indemnities: @indemnities)
+    else
+      redirect_to no_indemnities_path
+    end
+
+
+
+
   end
 
   def display_indemnities

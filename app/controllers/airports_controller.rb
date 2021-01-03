@@ -6,6 +6,7 @@ class AirportsController < ApplicationController
     @indemnity_reason = params[:indemnity_reason]
     @arrival_delay = params[:arrival_delay]
     @airports = Airport.all.pluck(:name)
+    @airlines = Airline.all.pluck(:name)
     departure_airport = params[:departure_airport]
     arrival_airport = params[:arrival_airport]
   end

@@ -3,7 +3,7 @@ require 'csv'
 class Airport < ApplicationRecord
 
   def self.create_from_collection
-    european_union_iso_codes = ['DE', 'BE', 'FR', 'IT', 'LU', 'NL', 'DK', 'IE', 'GB', 'GR', 'ES', 'PT', 'AT', 'FI', 'SE', 'CY', 'EE', 'HU', 'LV', 'LT', 'MT', 'PL', 'CZ', 'SK', 'SI', 'BG', 'RO', 'HR']
+    european_union_iso_codes = ['DE', 'BE', 'FR', 'IT', 'LU', 'NL', 'DK', 'IE', 'GR', 'ES', 'PT', 'AT', 'FI', 'SE', 'CY', 'EE', 'HU', 'LV', 'LT', 'MT', 'PL', 'CZ', 'SK', 'SI', 'BG', 'RO', 'HR']
     CSV.foreach('./public/airports.csv', headers: true, encoding:'UTF-8') do |row|
       belongs_to_eu = false
       if row[13] != nil
