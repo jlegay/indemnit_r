@@ -3,6 +3,8 @@ require 'csv'
 class Airline < ApplicationRecord
 
   def self.create_from_collection
+  # Crée en base (à partir du fichier csv correspondant) la liste des compagnies aériennes
+  # en indiquant pour chacune si c'est une compagnie intracommunautaire ou non
     european_union_countries = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden']
     CSV.foreach('./public/airlines.csv', headers: true, encoding:'UTF-8') do |row|
       belongs_to_eu = false

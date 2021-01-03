@@ -1,3 +1,7 @@
+<!-- Détermine le lien à suivre pour chaque réponse de la question affichée :
+      - si question finale et droit à indemnités : lien vers form détails vol pour déterminer le montant
+      - si question finale et pas droit à indemnités : lien vers page affichant 0 indemnités
+      - si pas question finale : lien vers la question suivante (indiquée dans answer.dependency) -->
 <div class="full-container">
   <div class="content-container">
     <div class="content">
@@ -7,7 +11,7 @@
           <% @question.answers.each do |answer| %>
             <% if answer.final_answer %>
               <% if answer.open_to_indemnities%>
-                <div class="answer-item"><%= link_to answer.answer_text, airports_distance_path(params: {indemnity_reason: answer.indemnity_reason}) %></div>
+                <div class="answer-item"><%= link_to answer.answer_text, flight_details_path(params: {indemnity_reason: answer.indemnity_reason}) %></div>
               <% else %>
                 <div class="answer-item"><%= link_to answer.answer_text, no_indemnities_path %></div>
               <%end %>

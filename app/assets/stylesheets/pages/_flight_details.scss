@@ -1,7 +1,3 @@
-// #input_form {
-//   margin-top: 2rem;
-// }
-
 .airports-form {
   padding: 50px;
 }
@@ -10,6 +6,10 @@
   border: 1px solid rgb(236, 151, 31);
   font-size: 10px;
   padding: 1rem 1.5rem;
+}
+
+.delay-form > input, label {
+  display: block;
 }
 
 

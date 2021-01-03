@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:show]
 
-  resources :results, only: [:show]
-
-  get 'airports_distance', to: 'airports#airports_distance'
+  get 'flight_details', to: 'pages#flight_details'
   get 'no_indemnities', to: 'pages#no_indemnities'
   get 'display_indemnities', to: 'pages#display_indemnities'
   post 'indemnities_amount', to: 'pages#indemnities_amount'
